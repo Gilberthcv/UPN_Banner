@@ -106,7 +106,7 @@ where glbextr_application = 'STUDENT'
 /*7.-Validar que los registros de nuestra selección quedaron con retención RA vigente*/
 
 select GB_COMMON.F_GET_ID(SPRHOLD_PIDM), C.*
-from SPRHOLD
+from SPRHOLD C
 where SPRHOLD_HLDD_CODE = 'RA'
     AND (TRUNC(SYSDATE) >= TRUNC(SPRHOLD_FROM_DATE)
     AND TRUNC(SYSDATE) < TRUNC(SPRHOLD_TO_DATE))
