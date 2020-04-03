@@ -71,8 +71,9 @@ where SPRHOLD_HLDD_CODE = 'AR'
 
 select * from SPRHOLD
 where SPRHOLD_HLDD_CODE = 'AR'
-    and (TRUNC(SYSDATE) >= TRUNC(SPRHOLD_FROM_DATE)
+    AND (TRUNC(SYSDATE) >= TRUNC(SPRHOLD_FROM_DATE)
     AND TRUNC(SYSDATE) < TRUNC(SPRHOLD_TO_DATE))
+    --AND TO_CHAR(SPRHOLD_TO_DATE,'DD-MM-YYYY') = TO_CHAR(SYSDATE,'DD-MM-YYYY')
     AND SPRHOLD_PIDM IN (SELECT GLBEXTR_KEY FROM GLBEXTR
                         where glbextr_application = 'STUDENT'
                             AND glbextr_selection = 'ALUMNOS_EG'
