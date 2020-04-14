@@ -9,6 +9,21 @@ WHERE TBRACCD_PIDM = GB_COMMON.F_GET_PIDM('N00261078')  --ID
     AND TBRACCD_TRAN_NUMBER >= 1 AND TBRACCD_TRAN_NUMBER <= 38;
 
 ---------------------------------------------------------------
+
+SELECT DISTINCT 
+    GB_COMMON.F_GET_ID(TBRACCD_PIDM)
+    --, TBRACCD_PIDM
+    , TBRACCD_TERM_CODE
+    , TBRACCD_ENTRY_DATE
+    , TBRACCD_TRAN_NUMBER
+    , TBRACCD_SURROGATE_ID
+FROM TBRACCD
+WHERE TBRACCD_PAYMENT_ID IS NULL
+    AND TBRACCD_ENTRY_DATE BETWEEN TO_DATE('01/04/2020','DD/MM/YYYY') AND CURRENT_DATE
+ORDER BY 1, 4;
+
+---------------------------------------------------------------
+
 --Seleccion de poblacion
 select * from glbextr
 where glbextr_application = 'STUDENT'
